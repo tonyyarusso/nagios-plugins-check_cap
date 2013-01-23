@@ -1,0 +1,42 @@
+Name:         check_cap
+Description:  Nagios weather and civil alert check
+Author:       Tony Yarusso <tonyyarusso@gmail.com>
+Copyright:    2010, Tony Yarusso
+License:      BSD <http://www.opensource.org/licenses/bsd-license.php>
+
+Usage:  check_cap [-s <ST>] -l <codes>
+e.g. check_cap -s MN -l 027123
+e.g. check_cap -s MN -l 027123,027053
+
+Options:
+ -h, --help
+    Print details help screen
+ -s, --state, --province
+    Postal abbreviation for the state or province
+    This is optional, but *strongly* recommended for performance
+    reasons.  Default is to check all of the US.
+ -l, --location
+    FIPS6 or UGC code(s) for the county/ section/zone.  Multiple
+    codes may be provided, separated by commas(with no spaces).
+ -w, --warning, --warning-severity
+    Minimum severity to trigger a warning state [Default=Unknown]
+    (One of Unknown, Minor, Moderate, Severe, or Extreme)
+ -c, --critical, --critical-severity
+    Minimum severity to trigger a critical state [Default=Severe]
+ --warning-urgency
+    Minimum urgency to trigger a warning state [Default=Unknown]
+    (One of Past, Unknown, Future, Expected, or Immediate)
+ --critical-urgency
+    Minimum urgency to trigger a critical state [Default=Expected]
+ --warning-certainty
+    Minimum certainty to trigger a warning state [Default=Unknown]
+    (One of Unknown, Unlikely, Possible, Likely, Observed)
+ --critical-certainty
+    Minimum certainty to trigger a critical state [Default=Likely]
+
+You can look up FIPS6/SAME codes on
+http://www.nws.noaa.gov/nwr/indexnw.htm, UGC county codes on
+http://www.itl.nist.gov/fipspubs/co-codes/states.htm, and UGC zones
+on http://www.nws.noaa.gov/geodata/catalog/wsom/html/pubzone.htm.
+(UGC county codes are the postal appreviation, a "C", and then the
+last three digits of the FIPS6 codes.)
